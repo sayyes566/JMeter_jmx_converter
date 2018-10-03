@@ -6,9 +6,9 @@
       <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
       <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
-        <collectionProp name="Arguments.arguments"><elementProp name="Aki" elementType="HTTPArgument">
+        <collectionProp name="Arguments.arguments"><elementProp name="JOHN" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">Aki</stringProp>
+                  <stringProp name="Argument.value">JOHN</stringProp>
     <stringProp name="Argument.metadata">=</stringProp>
     <boolProp name="HTTPArgument.use_equals">true</boolProp>
     <stringProp name="Argument.name">name</stringProp></elementProp><elementProp name="0" elementType="HTTPArgument">
@@ -38,9 +38,9 @@
       <hashTree>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="HTTP Request" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
-            <collectionProp name="Arguments.arguments"><elementProp name="Aki" elementType="HTTPArgument">
+            <collectionProp name="Arguments.arguments"><elementProp name="JOHN" elementType="HTTPArgument">
                   <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">Aki</stringProp>
+                  <stringProp name="Argument.value">JOHN</stringProp>
     <stringProp name="Argument.metadata">=</stringProp>
     <boolProp name="HTTPArgument.use_equals">true</boolProp>
     <stringProp name="Argument.name">name</stringProp></elementProp><elementProp name="0" elementType="HTTPArgument">
