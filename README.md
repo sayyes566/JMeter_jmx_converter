@@ -38,7 +38,7 @@ JSON Format:
 
 |Author|Coding Dog|
 |---|---
-|E-mail|sayyes566@gj.com
+|Github|sayyes566
 
 
 
