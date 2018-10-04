@@ -33,7 +33,7 @@ $title = $xml.find( "jmeterTestPlan" );
 
 //JMX position
 var pos = {
-  method: 'boolProp[name$="HTTPSampler.use_keepalive"]',
+  method: 'stringProp[name$="HTTPSampler.method"]',
   url_domain: 'stringProp[name$="HTTPSampler.domain"]',
   url_port: 'stringProp[name$="HTTPSampler.port"]',
   url_protocol: 'stringProp[name$="HTTPSampler.protocol"]',
@@ -110,7 +110,7 @@ var assign = async(data) =>{
   $title.find(pos.parameter).text(param_template);
   }else if (file == template.body){
   //body
-  $title.find(pos.body).text(data.body);
+  $title.find(pos.body).text(JSON.stringify(data.body));
   }
   //thread_ramp_time
   $title.find(pos.thread_ramp_time).text(data.thread.ramp_time);
