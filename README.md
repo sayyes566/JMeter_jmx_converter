@@ -37,18 +37,20 @@ JSON Format:
 
 #### step 5. execute JMeter
 
-input.jmx <--- use JMeter to open then finish. 
+```
+jmeter -n -t ./input.jmx -l ./result.jtl
+```
 
 #### step 6. generate dashbaord
-
+```
 jmeter -g *jtl -o ./dashbaord
-
+```
 #### step 7. to get  aggregate report
-
+```
 node fetch-aggregate-report.js 
 
 output result.json 
-
+```
 |Author|Coding Dog|
 |---|---
 |Github|sayyes566
