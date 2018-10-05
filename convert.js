@@ -52,7 +52,8 @@ var pos = {
   thread_loops: 'stringProp[name$="LoopController.loops"]',
   thread_loops_continue_forever: 'stringProp[name$="LoopController.continue_forever"]',
   thread_on_sample_error: 'stringProp[name$="LoopController.on_sample_error"]',
-  header: 'collectionProp[name$="HeaderManager.headers"]'
+  header: 'collectionProp[name$="HeaderManager.headers"]',
+  testname: 'HTTPSamplerProxy[testclass$="HTTPSamplerProxy"]'
   
 }
 
@@ -78,6 +79,8 @@ var assign = async(data) =>{
     $title.find(pos.redirect_auto).text(true);
     $title.find(pos.redirect_follow).text(false);
   }
+  //testname
+  $title.find(pos.testname).attr("testname",data.testname);
   //use_keepalive
   $title.find(pos.use_keepalive).text(data.use_keepalive);
   //multipart_post
