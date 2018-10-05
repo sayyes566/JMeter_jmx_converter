@@ -8,6 +8,7 @@ JSON Format:
 
 ```
 {
+  "testname" :"label-23", //string
   "method": "GET",  //string
   "url": "http://domain:port/path",  //string
   "redirect": "follow_redirects", //string
