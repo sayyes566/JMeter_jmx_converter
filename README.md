@@ -6,7 +6,7 @@ JSON Format:
 
 #### Step 1. create input.json
 
-
+```
 {
   "method": "GET",  //string
   "url": "http://domain:port/path",  //string
@@ -26,7 +26,7 @@ JSON Format:
                 "on_sample_error": "startnextloop" //string
   }
 }
-
+```
 
 
 #### step 2. install nodejs
