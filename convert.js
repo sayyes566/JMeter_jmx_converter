@@ -14,9 +14,9 @@ var data = require("./input.json")
 //loding file
 file = (data.parameter)? template.params : (data.body)? template.body : template.null ;
 const xml = require(file);
-console.log(file)
+//console.log(file)
 
-
+var print = (text)=> console.log(text);
 //jQuery
 var jsdom = require('jsdom');
 const { JSDOM } = jsdom;
@@ -51,7 +51,9 @@ var pos = {
   thread_num_threads: 'stringProp[name$="ThreadGroup.num_threads"]',
   thread_loops: 'stringProp[name$="LoopController.loops"]',
   thread_loops_continue_forever: 'stringProp[name$="LoopController.continue_forever"]',
-  thread_on_sample_error: 'stringProp[name$="LoopController.on_sample_error"]'
+  thread_on_sample_error: 'stringProp[name$="LoopController.on_sample_error"]',
+  header: 'collectionProp[name$="HeaderManager.headers"]'
+  
 }
 
 //
@@ -86,32 +88,52 @@ var assign = async(data) =>{
   $title.find(pos.connect_timeout).text(data.connect_timeout);
   //response_timeout
   $title.find(pos.response_timeout).text(data.response_timeout);
-
+  
+  //Method: GET or POST
   if (file == template.params){
-  //parameter
-  let params = data.parameter;
-  var param_template = "";
-  for (let key in params){
-    let value = params[key];
-    param_template += `<elementProp name=\"`+value+`\" elementType=\"HTTPArgument\">
-                  <boolProp name=\"HTTPArgument.always_encode\">false</boolProp>
-                  <stringProp name=\"Argument.value\">`;
-    param_template +=  value;
-    param_template +=  `</stringProp>
-    <stringProp name=\"Argument.metadata\">=</stringProp>
-    <boolProp name=\"HTTPArgument.use_equals\">true</boolProp>
-    <stringProp name=\"Argument.name\">`;
-    param_template +=  key;
-    param_template +=  `</stringProp></elementProp>`;
+    //parameter
+    let params = data.parameter;
+    var param_template = "";
+    for (let key in params){
+      let value = params[key];
+      param_template += `<elementProp name=\"`+value+`\" elementType=\"HTTPArgument\">
+                         <boolProp name=\"HTTPArgument.always_encode\">false</boolProp>
+                         <stringProp name=\"Argument.value\">`;
+      param_template +=  value;
+      param_template +=  `</stringProp>
+                          <stringProp name=\"Argument.metadata\">=</stringProp>
+                          <boolProp name=\"HTTPArgument.use_equals\">true</boolProp>
+                          <stringProp name=\"Argument.name\">`;
+      param_template +=  key;
+      param_template +=  `</stringProp></elementProp>`;
 
 
-  }
-  //$title.find(pos.parameter).html(param_template);
-  $title.find(pos.parameter).text(param_template);
+    }  
+    //$title.find(pos.parameter).html(param_template);
+    $title.find(pos.parameter).text(param_template);
   }else if (file == template.body){
-  //body
-  $title.find(pos.body).text(JSON.stringify(data.body));
+    //body
+    $title.find(pos.body).text(JSON.stringify(data.body));
   }
+  //Headers
+  if(data.headers){
+    let headers = data.headers;
+    var header_template = "";
+    for (let key in headers){
+      let value = headers[key]
+      header_template += `<elementProp name="" elementType="Header">
+                          <stringProp name="Header.name">`;
+      header_template += key;
+      header_template += `</stringProp><stringProp name="Header.value">`
+      header_template += value;
+      header_template += `</stringProp></elementProp>`;
+    }
+    $title.find(pos.header).text(header_template);
+
+   }
+
+
+  
   //thread_ramp_time
   $title.find(pos.thread_ramp_time).text(data.thread.ramp_time);
   //thread_num_threads
