@@ -34,7 +34,7 @@
   "devDependencies": {
     "jquery": "^3.3.1",
     "js2xmlparser": "^3.0.0",
-    "jsdom": "^12.0.0",
+    "jsdom": "^16.5.0",
     "jsontoxml": "^1.0.0",
     "xml-parse-from-string": "^1.0.1",
     "xml2js": "^0.4.19",
