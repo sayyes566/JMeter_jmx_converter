@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "dom-parser": "^0.1.5",
-    "express": "^4.13.3",
+    "express": "^4.18.2",
     "hoek": "^5.0.4",
     "joi": "^13.6.0",
     "node-expat": "^2.3.17",
